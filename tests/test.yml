@@ -1,0 +1,12 @@
+---
+- hosts: all
+  pre_tasks:
+  - name: Update apt cache.
+    apt: update_cache=yes cache_valid_time=600
+    when: ansible_os_family == 'Debian'
+  - apt:
+      name: git
+  roles:
+    - role: role_under_test
+      vars:
+        prezto_repo_accept_host_key: true

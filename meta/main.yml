@@ -1,0 +1,24 @@
+galaxy_info:
+  role_name: prezto
+  author: Brian Hartsock
+  description: Role to install Prezto.
+  license: MIT
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+    - name: MacOSX
+      verisons:
+        - all
+
+  galaxy_tags:
+    - zsh
+    - prezto
+    - osx
+    - mac
+    - ubuntu
+
+dependencies: []
