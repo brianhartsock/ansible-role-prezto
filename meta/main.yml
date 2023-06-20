@@ -1,10 +1,11 @@
 galaxy_info:
   role_name: prezto
+  namespace: brianhartsock
   author: Brian Hartsock
   description: Role to install Prezto.
   license: MIT
 
-  min_ansible_version: 2.4
+  min_ansible_version: "2.4"
 
   platforms:
     - name: Ubuntu

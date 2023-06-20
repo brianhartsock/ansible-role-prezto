@@ -1,13 +1,13 @@
 ---
 - name: Install Prezto
-  git:
+  ansible.builtin.git:
     repo: "{{ prezto_repo }}"
     dest: "{{ prezto_repo_destination }}"
     recursive: true
     accept_hostkey: "{{ prezto_repo_accept_host_key }}"
     version: "{{ prezto_repo_version }}"
 - name: Link all Prezto files
-  file:
+  ansible.builtin.file:
     src: "{{ prezto_repo_destination }}/runcoms/{{ item }}"
     dest: ~/.{{ item }}
     state: link
