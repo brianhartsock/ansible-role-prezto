@@ -1,0 +1,10 @@
+---
+- name: Prepare
+  hosts: all
+  pre_tasks:
+    - name: Update apt cache.
+      ansible.builtin.package:
+        update_cache: true
+
+  roles:
+    - role: geerlingguy.git
