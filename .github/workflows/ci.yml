@@ -27,7 +27,9 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies.
-        run: pip3 install -r requirements.txt
+        run: |
+          pip3 install -r requirements.txt
+          ansible-galaxy install -r molecule/default/requirements.yml
 
       - name: Ansible lint
         run: ansible-lint
