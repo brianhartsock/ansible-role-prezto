@@ -1,7 +1,5 @@
-ZSH
+/SH
 =========
-
-[![Build Status](https://travis-ci.org/brianhartsock/ansible-role-prezto.svg?branch=master)](https://travis-ci.org/brianhartsock/ansible-role-prezto)
 
 Role to install [Prezto](https://github.com/sorin-ionescu/prezto).
 
