@@ -11,6 +11,7 @@
     src: "{{ prezto_repo_destination }}/runcoms/{{ item }}"
     dest: ~/.{{ item }}
     state: link
+  when: 'not ansible_check_mode'
   with_items:
     - zlogin
     - zlogout
