@@ -7,7 +7,7 @@ Role to install [Prezto](https://github.com/sorin-ionescu/prezto) for users on L
 Requirements
 ------------
 
-Role has been tested on Ubuntu 20.04, 22.04, 24.04 and Mac OSX Sonoma. Although any operating system that can run ZSH should work.
+Role has been tested on Ubuntu 22.04, 24.04 and Mac OSX Sonoma. Although any operating system that can run ZSH should work.
 
 Git is required to checkout the Prezto source.
 
