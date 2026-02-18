@@ -1,2 +1,6 @@
 # Ansible files
 *.retry
+.ansible/
+
+# Virtual environment
+.venv/
