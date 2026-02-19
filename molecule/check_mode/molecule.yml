@@ -7,6 +7,8 @@ platforms:
   # Only worry about noble for check mode since there is no difference in playbooks
   - name: noble
     image: ubuntu:24.04
+    env:
+      USER: root
 provisioner:
   name: ansible
   options:

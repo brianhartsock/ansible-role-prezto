@@ -55,6 +55,43 @@ Role variables are in `defaults/main.yml` (repo URL, destination, host key accep
 - `.yamllint` allows up to 160-character lines
 - Pre-commit hooks use `language: system` (tools must be installed in the active virtualenv)
 
-## CI Note
+## CI
 
-CI checks out the repo into a directory named `brianhartsock.zprezto` so molecule can resolve the role name correctly. Locally this is not required.
+CI runs on `ubuntu-latest` via GitHub Actions (`.github/workflows/ci.yml`) with two jobs:
+
+1. **Lint** -- runs `ansible-lint`, `yamllint`, and `flake8`
+2. **Molecule** (`needs: lint`) -- runs both the default and `check_mode` molecule scenarios
+
+Both jobs check out the repo into a directory named `brianhartsock.zprezto` so molecule can resolve the role name correctly. Locally this is not required.
+
+A separate release workflow (`.github/workflows/release.yml`) publishes the role to Ansible Galaxy on GitHub release events.
+
+## Development Workflow
+
+Follow this workflow for all code changes.
+
+```
+Code → Document → Verify → Code Review
+  ^                              |
+  └──── fix issues ──────────────┘
+```
+
+### 1. Code
+
+Make the implementation changes. Use FQCNs, name all tasks, and follow the patterns in existing task files.
+
+### 2. Document
+
+Update README.md and CLAUDE.md to reflect any changes to variables, platforms, commands, or architecture. If the ansible plugin is installed, use the `documentator` agent.
+
+### 3. Verify
+
+Run linters (yamllint, ansible-lint, flake8), pre-commit hooks, and molecule tests. All checks must pass before proceeding. If the ansible plugin is installed, use the `verifier` agent.
+
+### 4. Code Review
+
+Review the changes for Ansible best practices, idempotency, security, cross-platform correctness, and test coverage. If the ansible plugin is installed, use the `code-reviewer` agent.
+
+### 5. Iterate
+
+If verification or code review flags issues, fix them and repeat from step 2. Continue until all checks pass and the review is clean.
